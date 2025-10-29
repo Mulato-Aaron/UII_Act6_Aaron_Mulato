@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Cursos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Cursos Disponibles</h1>
+
+    {% if cursos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Curso</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Duración</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for curso in cursos %}
+                <tr>
+                    <td>{{ curso.id_curso }}</td>
+                    <td>{{ curso.nombre_curso }}</td>
+                    <td>{{ curso.descripcion }}</td>
+                    <td>{{ curso.duracion }}</td>
+                    <td>{{ curso.fecha_inicio }}</td>
+                    <td>{{ curso.fecha_fin }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay cursos disponibles.</p>
+    {% endif %}
+</body>
+</html>
